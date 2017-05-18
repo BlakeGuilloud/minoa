@@ -14,8 +14,6 @@ function receiveUsersData(state, action) {
       ...state.users,
       ...action.payload.users,
     },
-    loading: false,
-    pageNo: action.payload.pageNo,
   };
 }
 

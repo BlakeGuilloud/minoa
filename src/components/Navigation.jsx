@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import cx from 'classnames';
+
+import * as UIActions from '../actions/UIActions';
 
 class Navigation extends Component {
-  componentDidMount() {
-    this.setClasses();
+  fetchClassNames = (id) => {
+    return cx('navigation__options-item', {
+      'nav-active': this.props.pathname === id,
+    });
   }
 
-  componentDidUpdate() {
-    this.setClasses();
-  }
+  renderUserNav = () =>
+    <div className="navigation__options">
+      <Link onClick={() => this.props.changePath('home')} to="/" className={this.fetchClassNames('home')}>Home</Link>
+      <Link onClick={() => this.props.changePath('profile')} to="/profile" className={this.fetchClassNames('profile')}>Profile</Link>
+      <Link onClick={() => this.props.changePath('logout')} to="/logout" className={this.fetchClassNames('logout')}>Logout</Link>
+    </div>;
 
-  setClasses = () => {
-    document.getElementById('nav-home').classList.remove('nav-active');
-    document.getElementById('nav-login').classList.remove('nav-active');
-    document.getElementById('nav-register').classList.remove('nav-active');
-
-    switch (location.pathname) {
-      case '/':
-        document.getElementById('nav-home').classList.add('nav-active');
-        break;
-      case '/register':
-        document.getElementById('nav-register').classList.add('nav-active');
-        break;
-      case '/login':
-        document.getElementById('nav-login').classList.add('nav-active');
-        break;
-      default:
-        document.getElementById('nav-home').classList.add('nav-active');
-        break;
-    }
-  }
+  renderDefaultNav = () =>
+    <div className="navigation__options">
+      <Link onClick={() => this.props.changePath('home')} to="/" className={this.fetchClassNames('home')}>Home</Link>
+      <Link onClick={() => this.props.changePath('login')} to="/login" className={this.fetchClassNames('login')}>Login</Link>
+      <Link onClick={() => this.props.changePath('register')} to="/register" className={this.fetchClassNames('register')}>Register</Link>
+    </div>;
 
   render() {
     return (
@@ -37,14 +34,30 @@ class Navigation extends Component {
         <div className="navigation__logo">
           minoa
         </div>
-        <div className="navigation__options">
-          <Link to="/" id="nav-home" className="navigation__options-item">Home</Link>
-          <Link to="/login" id="nav-login" className="navigation__options-item">Login</Link>
-          <Link to="/register" id="nav-register" className="navigation__options-item">Register</Link>
-        </div>
+        {this.props.currentUser._id ? this.renderUserNav() : this.renderDefaultNav()}
       </div>
     );
   }
 }
 
-export default Navigation;
+Navigation.PropTypes = {
+  currentUser: PropTypes.object.isRequired,
+  changePath: PropTypes.func.isRequired,
+};
+
+function mapStateToProps(state) {
+  const { auth, ui } = state;
+
+  return {
+    currentUser: auth.currentUser,
+    pathname: ui.pathname,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    changePath: bindActionCreators(UIActions.changePath, dispatch),
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

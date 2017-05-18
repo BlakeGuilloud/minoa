@@ -5,15 +5,11 @@ import { Provider } from 'react-redux';
 import App from './components/App.jsx';
 import {
   Home,
+  Login,
+  Register,
 } from './components';
 
 require('./styles/App.css');
-
-const Hello = (props) => {
-  return (
-    <div>eeyy</div>
-  )
-}
 
 import store from './store';
 
@@ -23,7 +19,8 @@ ReactDOM.render(
       <div>
         <Route path="/" component={App} />
         <Route exact path="/" component={Home} />
-        <Route exact path="/hello" component={Hello} />
+        <Route exact path="/login" component={Login} />
+        <Route exact path="/register" component={Register} />
       </div>
     </BrowserRouter>
   </Provider>,

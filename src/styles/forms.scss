@@ -1,0 +1,24 @@
+.input {
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid lighten($color-brand-gray, 50%);
+  color: $color-brand-gray;
+  margin-bottom: 15px;
+  font-size: $font-size-small;
+}
+
+label {
+  font-size: $font-size-small;
+  color: lighten($color-brand-gray, 15%);
+  margin-bottom: 5px;
+}
+
+.button {
+  font-size: $font-size-small;
+  text-align: right;
+  text-decoration: underline;
+}
+
+.button:hover {
+  color: lighten($color-brand-gray, 5%);
+}

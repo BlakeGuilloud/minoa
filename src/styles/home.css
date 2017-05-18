@@ -1,0 +1,47 @@
+.home {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.project-listing {
+  border: 1px solid #434D53;
+  border-radius: 3px;
+  min-height: 150px;
+  padding: 20px;
+  margin: 10px;
+  width: 500px;
+  display: flex;
+  flex-direction: column; }
+
+.project-listing__title {
+  font-size: 28px;
+  text-decoration: underline; }
+
+.project-listing__footer {
+  margin-top: 30px; }
+
+.project-listing__seeking {
+  display: flex;
+  flex-wrap: wrap; }
+
+.project-listing__seeking-title {
+  margin-bottom: 10px; }
+
+.project-listing__seeking-item {
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: #0E8D94;
+  border: 1px solid #12b9c3; }
+
+.project-listing__seeking-item:hover {
+  background-color: #10a3ab; }
+
+@media (max-width: 1164px) {
+  .project-listing {
+    width: 100%; } }

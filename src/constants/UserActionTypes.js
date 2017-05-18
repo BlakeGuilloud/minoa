@@ -1,0 +1,1 @@
+export const RECEIVE_USERS = 'USER/RECEIVE_USERS';

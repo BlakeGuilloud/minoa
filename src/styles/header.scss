@@ -1,0 +1,18 @@
+.header {
+  background-color: $color-brand-gray;
+  height: 200px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0px 3px 5px #888888, 0px -2px 5px #888;
+}
+
+.header__logo {
+  height: 100px;
+}
+
+.header__main {
+  font-size: $font-size-large;
+}

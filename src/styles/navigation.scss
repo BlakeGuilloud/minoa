@@ -1,0 +1,24 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+.navigation__logo {
+  font-size: $font-size-medium;
+}
+
+.navigation__options {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__options-item {
+  padding-left: 10px;
+}
+
+.nav-active {
+  color: $color-brand-teal;
+}

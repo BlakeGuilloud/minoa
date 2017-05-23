@@ -1,6 +1,20 @@
 .input {
-  padding: 5px;
+  padding: 10px;
   border-radius: 3px;
-  border-width: 1px;
-  border-style: solid;
-  margin-bottom: 10px; }
+  border: 1px solid #c5ccd0;
+  color: #434D53;
+  margin-bottom: 15px;
+  font-size: 20px; }
+
+label {
+  font-size: 20px;
+  color: #65747d;
+  margin-bottom: 5px; }
+
+.button {
+  font-size: 20px;
+  text-align: right;
+  text-decoration: underline; }
+
+.button:hover {
+  color: #4e5a61; }

@@ -3,6 +3,10 @@ body {
   color: #434D53;
   font-family: 'Signika', sans-serif; }
 
+input, textarea, select {
+  font-family: inherit;
+  font-size: inherit; }
+
 a {
   text-decoration: none;
   color: inherit; }
